@@ -1,4 +1,4 @@
-# React + TypeScript - Ejercicio práctico de fundamentos
+# React + TypeScript - Ejercicio práctico de fundamentos del lenguaje
 
 Este proyecto forma parte de un ejercicio práctico para aprender los fundamentos de TypeScript aplicado a React con Vite.
 
