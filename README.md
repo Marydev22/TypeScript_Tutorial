@@ -1,75 +1,67 @@
-# React + TypeScript + Vite
+# React + TypeScript - Ejercicio práctico de fundamentos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto forma parte de un ejercicio práctico para aprender los fundamentos de TypeScript aplicado a React con Vite.
 
-Currently, two official plugins are available:
+La aplicación sirve como base para explorar y practicar conceptos clave del tipado estático, la inferencia de tipos y la seguridad que TypeScript aporta al desarrollo frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objetivo del ejercicio
 
-## React Compiler
+Aprender a:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- definir y usar tipos básicos (`string`, `number`, `boolean`)
+- trabajar con arrays y tuplas
+- crear funciones tipadas con parámetros y valor de retorno
+- manejar `null`, `undefined`, `any` y `unknown`
+- comprender la inferencia de tipos en variables y constantes
+- aplicar estos conceptos dentro de una pequeña app React
 
-## Expanding the ESLint configuration
+## Módulo actual
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+La práctica se centra en el Módulo 1, donde se realizan ejemplos de:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- inferencia de tipos
+- variables con tipado explícito
+- arrays de cadenas
+- tuplas con valores mixtos
+- funciones con retorno numérico
+- validación de tipos con `unknown`
+- uso de valores nulos y opcionales
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estructura principal
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `src/pages/Modulo1Page.tsx`: contiene los ejemplos prácticos de fundamentos de TypeScript
+- `src/utils/CalcularDanio.ts`: función pura que calcula daño con tipado
+- `src/pages/HomePage.tsx`: página principal con navegación entre módulos
+- `src/routers/router.tsx`: configuración de rutas
 
+## Cómo ejecutar el proyecto
+
+1. Instalar dependencias:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+2. Iniciar la aplicación en modo desarrollo:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+3. Abrir la URL que indique Vite en el terminal, normalmente:
+
+```bash
+http://localhost:5173/
+```
+
+## Tecnologías usadas
+
+- React
+- TypeScript
+- Vite
+- React Router
+
+## Resumen
+
+Este ejercicio busca comprender que TypeScript no solo añade sintaxis, sino que ayuda a detectar errores antes de ejecutar la app, mejorar la mantenibilidad del código y facilitar el trabajo en proyectos React más grandes y complejos.
+
