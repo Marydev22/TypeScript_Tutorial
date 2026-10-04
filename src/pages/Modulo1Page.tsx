@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { calcularDanio } from "../utils/CalcularDanio"; // funcion pura del archivo TS
 export const Modulo1Page = () => {
     //Inferencia y tipado
@@ -47,10 +48,15 @@ export const Modulo1Page = () => {
     }
 
 return (
+    
     <main className="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
     <div className="mx-auto max-w-3xl p-8">
         <header>
-            <h1 className="text-3xl font-semibold text-blue-500">
+            <Link to="/" className=" px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg shadow-md">
+                Volver al Home
+            </Link>
+
+            <h1 className="text-3xl font-semibold text-blue-500 mt-2">
             React + TypeScript – Módulo 1
             </h1>
             <p className="mt-2 text-sm text-neutral-400">

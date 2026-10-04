@@ -15,21 +15,33 @@ Aprender a:
 - comprender la inferencia de tipos en variables y constantes
 - aplicar estos conceptos dentro de una pequeña app React
 
-## Módulo actual
+## Conceptos practicados
 
-La práctica se centra en el Módulo 1, donde se realizan ejemplos de:
+### Módulo 1
 
-- inferencia de tipos
-- variables con tipado explícito
-- arrays de cadenas
-- tuplas con valores mixtos
-- funciones con retorno numérico
-- validación de tipos con `unknown`
-- uso de valores nulos y opcionales
+Se practican:
+
+- inferencia y anotación explícita de tipos
+- tipos básicos, arrays y tuplas
+- funciones con parámetros y valor de retorno tipados
+- manejo de `null`, `undefined`, `any` y `unknown`
+
+### Módulo 2
+
+Se practican:
+
+- alias de tipos con `type` para definir la forma de objetos
+- uniones de literales, por ejemplo `"suave" | "fuerte"`, para limitar valores posibles
+- tipado de parámetros y resultados de funciones con tipos propios
+- definición de contratos de objetos con `interface`
+- extensión de interfaces con `extends` para reutilizar propiedades
+- fusión de declaraciones de una misma interfaz para ampliar su forma
+- uso de tipos e interfaces con ejemplos de recetas y la analogia de la maquina de café
 
 ## Estructura principal
 
 - `src/pages/Modulo1Page.tsx`: contiene los ejemplos prácticos de fundamentos de TypeScript
+- `src/pages/Modulo2Page.tsx`: contiene ejemplos de alias de tipos e interfaces
 - `src/utils/CalcularDanio.ts`: función pura que calcula daño con tipado
 - `src/pages/HomePage.tsx`: página principal con navegación entre módulos
 - `src/routers/router.tsx`: configuración de rutas
@@ -64,4 +76,3 @@ http://localhost:5173/
 ## Resumen
 
 Este ejercicio busca comprender que TypeScript no solo añade sintaxis, sino que ayuda a detectar errores antes de ejecutar la app, mejorar la mantenibilidad del código y facilitar el trabajo en proyectos React más grandes y complejos.
-
