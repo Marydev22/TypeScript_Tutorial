@@ -36,12 +36,18 @@ Se practican:
 - definición de contratos de objetos con `interface`
 - extensión de interfaces con `extends` para reutilizar propiedades
 - fusión de declaraciones de una misma interfaz para ampliar su forma
-- uso de tipos e interfaces con ejemplos de recetas y la analogia de la maquina de café
+- propiedades opcionales con `?` y valores predeterminados al desestructurar parámetros
+- tipado de props de componentes y valores iniciales opcionales
+- tipado de estado en React con `useState`, tanto explícito como inferido
+- estados con tipos unión, `null` y `undefined`
+- acceso a un tipo de propiedad mediante indexed access types, por ejemplo `CafePreparado["intensidad"]`
+- intersección de tipos con `&` para combinar propiedades de varios tipos
+- uso de estos conceptos en ejemplos de recetas, una máquina de café y un contador
 
 ## Estructura principal
 
 - `src/pages/Modulo1Page.tsx`: contiene los ejemplos prácticos de fundamentos de TypeScript
-- `src/pages/Modulo2Page.tsx`: contiene ejemplos de alias de tipos e interfaces
+- `src/pages/Modulo2Page.tsx`: contiene ejemplos de alias de tipos, interfaces, tipos compuestos y estado tipado en React
 - `src/utils/CalcularDanio.ts`: función pura que calcula daño con tipado
 - `src/pages/HomePage.tsx`: página principal con navegación entre módulos
 - `src/routers/router.tsx`: configuración de rutas

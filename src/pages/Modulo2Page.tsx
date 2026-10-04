@@ -1,30 +1,52 @@
-export const Modulo2Page = () => {
+import { useState } from "react";
+
+//Contador
+type ContadorProps = {
+    initial?: number;
+    step?: number;
+}
+
+export const Modulo2Page = ({ initial = 0, step = 1 }: ContadorProps) => {
+    const [count, setCount] = useState<number>(initial);
+    const inc = () => setCount((c) => c + step);
+    const dec = () => setCount((c) => c - step);
     
+    //Tipado inferido con useState
+    const [tazas, setTazas] = useState<number>(1) //inferido como number
+
     type Ingrediente = "azucar" | "cafe" | "agua";
     
     type RecetaCafe = {
-        agua: number;
-        cafe: number;
-        azucar: number;
+        agua?: number;
+        cafe?: number;
+        azucar?: number;
     };
 
     type CafePreparado = {
         mensaje:string;
         intensidad: "suave" | "fuerte";
     };
+    //Tipasdo explicito con useState (union literal)
+    const [intensidadUI, setIntensidadUI] = useState<CafePreparado["intensidad"]>("suave") //tipado de la intensidad
 
-    function prepararCafe(receta: RecetaCafe): CafePreparado {
-        const intensidad = receta.cafe > 10 ? "fuerte" : "suave";
+    //Explicito con null
+    const [ultimoCafe, setUltimoCafe] = useState<CafePreparado | null>(null);
+    //Valores que pueden ser undefined
+    const [azucarIn, setAzucarIn] = useState<number | undefined>(undefined);
+
+//Implemtacion de valores por default modficados con ?
+    function prepararCafe({agua=0, cafe=0, azucar=0}: RecetaCafe): CafePreparado {
+        const intensidad = cafe > 10 ? "fuerte" : "suave";
         return {
-            mensaje: `Café preparado con ${receta.agua}ml de agua, 
-            ${receta.cafe}g de café,` + (receta.azucar ? ` ${receta.azucar}g de azúcar `: ""), 
+            mensaje: `Café preparado con ${agua}ml de agua, 
+            ${cafe}g de café,` + (azucar ? ` ${azucar}g de azúcar `: ""), 
             
             intensidad,
         };
     }
 
     const onCafe = () => {
-        const resultado = prepararCafe({agua: 200, cafe: 5, azucar: 5});
+        const resultado = prepararCafe({cafe: 5, azucar: 5});
         alert(resultado.mensaje + "con intensidad " + resultado.intensidad);
     }
 
@@ -71,6 +93,15 @@ export const Modulo2Page = () => {
         alert(resultado.mensaje + "con intensidad " + resultado.intensidad);
     }
 
+    //INTERCCIONES 
+    type A = {nombre: string;}
+    type B = {edad: number;}
+    type C = {state: boolean;}
+    type Persona = A & B & C; //interseccion de tipos
+
+    const mariaObject: Persona = {nombre: "Maria Giron", edad: 22, state: true};
+
+
     return (
         <main className="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
             <div className="mx-auto max-w-3xl p-8">
@@ -96,7 +127,33 @@ export const Modulo2Page = () => {
                     Hacer café con el uso de INTERFACES
                 </button>
             </div>
+                <h1 className="text-2xl font-semibold text-blue-500 mt-2">
+                        useState tipados
+                </h1>
+                <span className="text-sm text-neutral-400 gap-2">
+                    {intensidadUI}
+                </span>
+            <div className="mx-auto p-12">
+                <button onClick ={()=>setIntensidadUI("fuerte")} 
+                className="mt-2 px-4 py-2 bg-white text-gray-800 rounded-lg shadow-md"> 
+                Cambiar State </button>
+            </div>
+
+                <h2 className="text-2xl font-semibold text-blue-500 mt-2">
+                        Contador
+                </h2>
+                <span className="min-w-[3ch] text-center text-2xl font-semibold">{count}</span>
+
+            <div className="mx-auto p-4">
+                <button onClick ={inc} className="mt-2 px-4 py-2 bg-green-900 text-white rounded-lg shadow-md hover:bg-green-800">Incrementar + </button>
+                <button onClick ={dec} className="mt-2 px-4 py-2 bg-red-900 text-white rounded-lg shadow-md hover:bg-red-800 "> Decrementar - </button>
+            </div>
+                <h2 className="text-2xl font-semibold text-blue-500 mt-2">
+                        Intersecciones (&)
+                </h2>
+                <span className="min-w-[3ch] text-center text-2xl font-semibold">{mariaObject.nombre} - {mariaObject.edad}</span>
+                <pre> {JSON.stringify(mariaObject, null, 2)} </pre>
             </div>
         </main>
     );
-}
+}   
